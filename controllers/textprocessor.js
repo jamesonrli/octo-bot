@@ -1,5 +1,6 @@
 
 exports.processText = function(req, res, next) {
+  console.log("processText request received");
   if(req.headers['content-type'] != "application/json") {
     sendFail(res);
   }
@@ -39,7 +40,7 @@ function sendFail(res) {
 var YesNoProcessor = require('./yesnoprocessor');
 function findPossibleProcessor(command, messageList) {
   console.log("failed to process incoming request");
-  
+
   switch(command) {
     case "/yesno":
       return YesNoProcessor;

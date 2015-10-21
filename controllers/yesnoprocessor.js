@@ -27,7 +27,9 @@ exports.getResponseJSON = function() {
       }
 
       sendResultGroupMe(resultText);
-      sendResultGroupMe(resultGif);
+      setTimeout(function() {
+        sendResultGroupMe(resultGif);
+      }, 2000);
 
       console.log("yesno message sent");
     });

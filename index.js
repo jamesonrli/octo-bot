@@ -15,7 +15,7 @@ server.use(restify.fullResponse());
 server.use(restify.bodyParser());
 
 // start textprocessor
-server.put("/textprocessor", controllers.textprocessor.processText);
+server.post("/textprocessor", controllers.textprocessor.processText);
 // end textprocessor
 
 var port = process.env.PORT || 5050;

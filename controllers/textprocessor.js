@@ -32,11 +32,14 @@ function sendFail(res) {
     message: "json body required"
   };
 
+
   res.send(JSON.stringify(response));
 };
 
 var YesNoProcessor = require('./yesnoprocessor');
 function findPossibleProcessor(command, messageList) {
+  console.log("failed to process incoming request");
+  
   switch(command) {
     case "/yesno":
       return YesNoProcessor;

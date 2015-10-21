@@ -2,6 +2,7 @@ var https = require('https');
 var http = require('http');
 
 exports.getResponseJSON = function() {
+  console.log("yesno matched preparing to send gif...");
   var getOptions = {
     host: 'yesno.wtf',
     path: '/api',
@@ -27,6 +28,8 @@ exports.getResponseJSON = function() {
 
       sendResultGroupMe(resultText);
       sendResultGroupMe(resultGif);
+
+      console.log("yesno message sent");
     });
   });
 

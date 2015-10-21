@@ -37,8 +37,8 @@ function sendFail(res) {
 
 var YesNoProcessor = require('./yesnoprocessor');
 function findPossibleProcessor(command, messageList) {
-  switch(command) {
-    case "/yesno":
+  switch(command.toLowerCase()) {
+    case "yesno":
       return YesNoProcessor;
       break;
   }

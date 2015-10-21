@@ -16,18 +16,17 @@ exports.getResponseJSON = function() {
 
     res.on('end', function() {
       var resultObj = JSON.parse(result);
-      var resultJSON = {
-        bot_id: '15b4f31aa3e2212980f859cc97',
+      var resultText = {
+        bot_id: process.env.bot_id,
         text: resultObj.answer,
-        attachments: [
-          {
-            type: 'image',
-            url: resultObj.image
-          }
-        ]
-      };
+      }
+      var resultGif = {
+        bot_id: process.env.bot_id,
+        text: resultObj.image
+      }
 
-      sendResultGroupMe(resultJSON);
+      sendResultGroupMe(resultText);
+      sendResultGroupMe(resultGif);
     });
   });
 

@@ -8,6 +8,8 @@ exports.processText = function(req, res, next) {
     var messageBody = req.body.text;
     var messageList = messageBody.split(" ");
 
+    console.log("incoming body: " + req.body);
+
     if(messageList.length > 0) {
       var command = messageList[0];
       var processor = findPossibleProcessor(command, messageList);

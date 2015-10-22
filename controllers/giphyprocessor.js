@@ -19,8 +19,9 @@ exports.getResponseJSON = function(messageList) {
 
     res.on('end', function() {
       var resultData = JSON.parse(result);
-      var randOffset = Math.random % 100; // get some offset between 0 and 100 (exclusive)
-      var realOffset = randOffset > resultData.data.length - 1 ? resultData.data.length - 1 : randOffset;
+      console.log(resultData);
+      var randOffset = Math.floor(Math.random() * 100); // get some offset between 0 and 100 (exclusive)
+      var realOffset = (randOffset > resultData.data.length - 1) ? resultData.data.length - 1 : randOffset;
       if(resultData.data.length > 0) {
         var downsizedGifUrl = resultData.data[realOffset].images.downsized.url;
         var resultGif = {

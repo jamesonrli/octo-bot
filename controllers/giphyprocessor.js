@@ -23,7 +23,7 @@ exports.getResponseJSON = function(messageList) {
       var randOffset = Math.floor(Math.random() * 100); // get some offset between 0 and 100 (exclusive)
       var realOffset = (randOffset > resultData.data.length - 1) ? resultData.data.length - 1 : randOffset;
       if(resultData.data.length > 0) {
-        var downsizedGifUrl = resultData.data[realOffset].images.downsized.url;
+        var downsizedGifUrl = resultData.data[realOffset].images.fixed_width.url;
         var resultGif = {
           bot_id: process.env.bot_id,
           text: downsizedGifUrl

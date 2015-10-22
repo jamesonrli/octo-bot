@@ -5,9 +5,10 @@ exports.getResponseJSON = function(messageList) {
   messageList.splice(0, 1);
   var searchString = messageList.join("+") || "";
   console.log("giphy matched preparing to send gif... with search: " + searchString);
+  var randOffset = Math.random % 100; // get some offset between 0 and 100 (exclusive)
   var getOptions = {
     host: 'api.giphy.com',
-    path: '/v1/gifs/search?q=' + searchString + '&api_key=dc6zaTOxFJmzC',
+    path: '/v1/gifs/search?q=' + searchString + '&api_key=dc6zaTOxFJmzC&limit=100&offset=' + randOffset,
     method: 'GET'
   };
 
@@ -25,7 +26,7 @@ exports.getResponseJSON = function(messageList) {
           bot_id: process.env.bot_id,
           text: downsizedGifUrl
         }
-        
+
         GroupMe.sendResult(resultGif);
 
         console.log("giphy message sent");

@@ -1,6 +1,6 @@
-var https = require('https');
 var http = require('http');
 
+var GroupMe = require('./groupmeclient');
 exports.getResponseJSON = function() {
   console.log("yesno matched preparing to send gif...");
   var getOptions = {
@@ -26,9 +26,9 @@ exports.getResponseJSON = function() {
         text: resultObj.image
       }
 
-      sendResultGroupMe(resultText);
+      GroupMe.sendResult(resultText);
       setTimeout(function() {
-        sendResultGroupMe(resultGif);
+        GroupMe.sendResult(resultGif);
       }, 2000);
 
       console.log("yesno message sent");
@@ -39,21 +39,4 @@ exports.getResponseJSON = function() {
   reqGet.on('error', function(e) {
     console.error("failed to get yesno");
   });
-};
-
-function sendResultGroupMe(result) {
-  var postOptions = {
-    host: 'api.groupme.com',
-    path: '/v3/bots/post',
-    method: 'POST'
-  };
-
-  // groupme does not provide response on success
-  var reqPost = https.request(postOptions);
-
-  reqPost.write(JSON.stringify(result));
-  reqPost.end();
-  reqPost.on('error', function(e) {
-    console.error("failed to post to groupme: " + e);
-  })
 };

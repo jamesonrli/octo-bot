@@ -15,7 +15,7 @@ exports.processText = function(req, res, next) {
 
       if(processor) {
         res.status(200);
-        res.send(JSON.stringify(processor.getResponseJSON()));
+        res.send(JSON.stringify(processor.getResponseJSON(messageList)));
       } else {
         res.send("");
       }
@@ -36,10 +36,13 @@ function sendFail(res) {
 };
 
 var YesNoProcessor = require('./yesnoprocessor');
+var GiphyProcessor = require('./giphyprocessor');
 function findPossibleProcessor(command, messageList) {
   switch(command.toLowerCase()) {
     case "yesno":
       return YesNoProcessor;
       break;
+    case "givemegif":
+      return GiphyProcessor;
   }
 };

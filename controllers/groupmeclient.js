@@ -1,6 +1,7 @@
 var https = require('https');
 
 exports.sendResult = function(result) {
+  console.log("sending message to groupme");
   var postOptions = {
     host: 'api.groupme.com',
     path: '/v3/bots/post',

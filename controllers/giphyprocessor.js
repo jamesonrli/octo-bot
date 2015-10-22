@@ -25,8 +25,8 @@ exports.getResponseJSON = function(messageList) {
           bot_id: process.env.bot_id,
           text: downsizedGifUrl
         }
-
-        GroupMe.sendResultGroupMe(resultGif);
+        
+        GroupMe.sendResult(resultGif);
 
         console.log("giphy message sent");
       }

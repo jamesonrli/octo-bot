@@ -35,6 +35,6 @@ exports.getResponseJSON = function(messageList) {
 
   reqGet.end();
   reqGet.on('error', function(e) {
-    console.error("failed to get giphy");
+    console.error("failed to giphy gif");
   });
 };

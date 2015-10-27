@@ -15,5 +15,5 @@ exports.sendResult = function(result) {
   reqPost.end();
   reqPost.on('error', function(e) {
     console.error("failed to post to groupme: " + e);
-  })
+  });
 };

@@ -20,11 +20,11 @@ exports.getResponseJSON = function() {
       var resultText = {
         bot_id: process.env.bot_id,
         text: resultObj.answer,
-      }
+      };
       var resultGif = {
         bot_id: process.env.bot_id,
         text: resultObj.image
-      }
+      };
 
       GroupMe.sendResult(resultText);
       setTimeout(function() {

@@ -20,14 +20,13 @@ exports.getResponseJSON = function(messageList) {
     res.on('end', function() {
       var resultData = JSON.parse(result);
       console.log(resultData);
-      var randOffset = Math.floor(Math.random() * 100); // get some offset between 0 and 100 (exclusive)
-      var realOffset = (randOffset > resultData.data.length - 1) ? resultData.data.length - 1 : randOffset;
+      var randOffset = Math.floor(Math.random() * resultData.data.length); // get some offset between 0 and 100 (exclusive)
       if(resultData.data.length > 0) {
-        var downsizedGifUrl = resultData.data[realOffset].images.downsized.url;
+        var downsizedGifUrl = resultData.data[randOffset].images.downsized.url;
         var resultGif = {
           bot_id: process.env.bot_id,
           text: downsizedGifUrl
-        }
+        };
 
         GroupMe.sendResult(resultGif);
 

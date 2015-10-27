@@ -33,7 +33,7 @@ function sendFail(res) {
 
 
   res.send(JSON.stringify(response));
-};
+}
 
 var YesNoProcessor = require('./yesnoprocessor');
 var GiphyProcessor = require('./giphyprocessor');
@@ -41,8 +41,7 @@ function findPossibleProcessor(command, messageList) {
   switch(command.toLowerCase()) {
     case "yesno":
       return YesNoProcessor;
-      break;
     case "givemegif":
       return GiphyProcessor;
   }
-};
+}
